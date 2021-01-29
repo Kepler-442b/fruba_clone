@@ -3,7 +3,8 @@ import sideBarStyle from "../styles/Sidebar.module.css"
 
 const Sidebar = () => {
     return (
-        <nav className={`col-sm-2 ${sideBarStyle.nav}`}>
+        <nav className={`${sideBarStyle.nav}`}>
+            <div className={`${sideBarStyle.menu}`}>
             <ul className="list-group">
                 <li className={`list-group-item ${sideBarStyle.li}`}>
                     <Link href="/">
@@ -15,7 +16,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li className={`list-group-item ${sideBarStyle.li}`}>
-                    <Link href="/">
+                    <Link href="/test" className={`${sideBarStyle.link}`}>
                         <img
                             className={`${sideBarStyle.img}`}
                             alt="news"
@@ -121,6 +122,7 @@ const Sidebar = () => {
                         /></Link>
                 </li>
             </ul>
+            </div>
         </nav>
     )
 }

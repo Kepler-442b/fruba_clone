@@ -1,0 +1,39 @@
+
+.main_img {
+    position: relative;
+    top:100px;
+}
+.img {
+    width:auto;
+    height: auto;
+    max-width: 1076px;
+    margin-left:38px;
+}
+
+.main_text_wrapper {
+    top: -795px;
+    position: relative;
+    left: 20px
+}
+
+.txt_mainvisual_top {
+    width: 60vw;
+    z-index: 1;
+    background-color: white;
+    /* position: relative; */
+}
+
+.img_text_01 {
+    width: 20vw;
+    background-color: white;
+    /* position: relative; */
+    z-index: 1;
+}
+
+.img_text_02 {
+    width: 15vw;
+    background-color: white;
+    /* position: relative; */
+    z-index: 1;
+}
+
