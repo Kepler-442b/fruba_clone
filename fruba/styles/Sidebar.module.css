@@ -1,6 +1,16 @@
+.side_bar_wrapper {
+    width: 240px;
+}
+
+.title {
+    background-color: #B082E0;
+    margin: 0;
+    padding: 35px 0 0 40px;
+    cursor: pointer;
+}
+
 .nav {
     background-color: #B082E0;
-    min-width:300px;
 }
 
 .li {
@@ -14,7 +24,7 @@
 } */
 
 .img {
-    height:16px;
+    height: 16px;
     vertical-align: bottom;
 }
 
@@ -33,9 +43,23 @@
 
 .logo {
     height: 38px;
-
 }
 
 .menu {
-    padding: 48px 32px 32px;
+    padding: 10px 32px 32px;
+}
+
+.side_info {
+    width: 240px;
+    padding: 20px 20px 0;
+}
+
+.movie_thumb {
+    width: 40px;
+    height: 40px;
+}
+
+.movie_thumb img {
+    width: 100%;
+    border-radius: 10px;
 }

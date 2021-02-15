@@ -1,39 +1,109 @@
+.main_img_wrapper {
+    /* display: flex; */
+}
 
 .main_img {
-    position: relative;
-    top:100px;
-}
-.img {
-    width:auto;
+    width: calc(100% - 80px);
     height: auto;
+    padding-top: 85px;
+    margin-left: 80px;
     max-width: 1076px;
-    margin-left:38px;
 }
 
-.main_text_wrapper {
-    top: -795px;
+.main_title_wrapper {
+    position: absolute;
+    top: 0;
+    left: 38px;
+}
+
+.title_container {
     position: relative;
-    left: 20px
-}
-
-.txt_mainvisual_top {
+    margin-bottom: 20px;
     width: 60vw;
-    z-index: 1;
-    background-color: white;
-    /* position: relative; */
 }
 
-.img_text_01 {
+.sub_title_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.sub_title_1_container {
+    position: relative;
     width: 20vw;
+    height: auto;
     background-color: white;
-    /* position: relative; */
-    z-index: 1;
+    /* z-index: 1; */
 }
 
-.img_text_02 {
+.sub_title_2_container {
+    position: relative;
     width: 15vw;
+    height: auto;
     background-color: white;
-    /* position: relative; */
-    z-index: 1;
+    /* z-index: 1; */
 }
 
+.text_curtain {
+    position: absolute;
+    top: 0;
+    left: auto;
+    width: 0%;
+    height: 100%;
+    background-color: #B082E0;
+    animation: grow_curtain ease-in 2s 1 forwards;
+}
+
+.text_curtain_sub_1 {
+    position: absolute;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #B082E0;
+    animation: grow_curtain ease-in 1s 0.5s 1 forwards;
+}
+
+.text_curtain_sub_2 {
+    position: absolute;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #B082E0;
+    animation: grow_curtain ease-in 1s 1s 1 forwards;
+}
+
+@keyframes grow_curtain {
+    0% {
+        width: 0%;
+        right: 100%;
+    }
+    25% {
+        width: 50%;
+        right: 50%;
+    }
+    50% {
+        width: 100%;
+        right: 0%;
+    }
+    75% {
+        width: 50%;
+        /* right: 50%; */
+    }
+    100% {
+        width: 0%;
+        /* right: 0%; */
+    }
+}
+
+.title_img {
+    opacity: 0;
+    animation: appear_pic 1s 2s 1 forwards;
+}
+
+@keyframes appear_pic {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
