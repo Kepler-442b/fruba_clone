@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Thumbs } from 'swiper'
 import 'swiper/swiper-bundle.css'
 import { characters } from "../constants"
 import { Button } from "react-bootstrap"
@@ -8,10 +8,10 @@ import { Button } from "react-bootstrap"
 const CharacterIntroSwiper = () => {
 
     // initialize swiper that uses navigation
-    SwiperCore.use([Navigation, Pagination])
+    SwiperCore.use([Navigation, Pagination, Thumbs])
 
     const [isSwitchedToAnimal, setIsSwitchedToAnimal] = useState(false)
-    // const [isSwitchedToPerson, setIsSwitchedToPerson] = useState(true)
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     const onClickSwitch = () => {
         if (!isSwitchedToAnimal) {
@@ -22,45 +22,56 @@ const CharacterIntroSwiper = () => {
     }
 
     const slides = []
-
-    for (let i = 0; i < characters.length; i++) {
+    characters.map((char, idx) => {
         slides.push(
             <SwiperSlide
-                key={`slide=${i}`}
+                key={`slide-${idx}`}
                 tag="li"
-                className={characters[i]}
-                style={{ backgroundImage: `url(/assets/char_background/${characters[i]}_ph_bg.jpg)` }}
+                className={char}
+                style={{ backgroundImage: `url(/assets/char_background/${char}_ph_bg.jpg)` }}
             >
-                <img className="title" src={`/assets/char_title/${characters[i]}_ttl_${characters[i]}.svg`} />
+                <img className="title" src={`/assets/char_title/${char}_ttl_${char}.svg`} />
                 <Button
                     className="switch-button"
                     onClick={onClickSwitch}
                 >
                     <img
                         src={isSwitchedToAnimal
-                            ? 
-                            `/assets/close-button.svg`
-                            : `/assets/char_switch/${characters[i]}_ph_switch.jpg`
+                            ? `/assets/close-button.svg`
+                            : `/assets/char_switch/${char}_ph_switch.jpg`
                         }
                     />
                 </Button>
                 <div className="character-info">
-                    <img className="name" src={`/assets/char_names/${characters[i]}_txt_name.svg`} />
+                    <img className="name" src={`/assets/char_names/${char}_txt_name.svg`} />
                     <div className="introduction"> 反かどだみ退隊うド出慣アスイ横別ず泉印ラが面放ロカ野37載ヲスヤ是授ぱてあぞ号見レアヘ保属ハ連芸時ー事策送四登こ。止ょ能27重はし地集昨ごド梨2報ムミセ浸供ぎれざぐ国惑球クタホネ載属合て児属発ニヱ提漢まがスで示16統憂昌65治ロユミチ野帯了夫ほもゃめ。</div>
-                    <img className="face" src={`/assets/char_main_faces/${characters[i]}_ph_face.jpg`} />
+                    <img className="face" src={`/assets/char_main_faces/${char}_ph_face.jpg`} />
                 </div>
                 <img
                     className="full-body"
                     src={isSwitchedToAnimal
-                        ? `/assets/char_animals/${characters[i]}_ph_animal.jpg`
-                        : `/assets/char_full_body/${characters[i]}_ph_chara.jpg`
+                        ? `/assets/char_animals/${char}_ph_animal.jpg`
+                        : `/assets/char_full_body/${char}_ph_chara.jpg`
                     }
                 />
-
             </SwiperSlide>
         )
-    }
+    })
 
+    const thumbsSlides = []
+    characters.map((char, idx) => {
+        thumbsSlides.push(
+            <SwiperSlide
+                key={`thumb-${idx}`}
+                tag="li"
+                className={char}
+            >
+                <img
+                    style={{ width: "60px", height: "60px" }}
+                    src={`/assets/char_thumbs/${char}_ph_thumb.jpg`}></img>
+            </SwiperSlide>
+        )
+    })
 
 
     return (
@@ -77,7 +88,7 @@ const CharacterIntroSwiper = () => {
                     text-align:center;
                     border-radius: 10px 0px 0px 10px;
                     width: 100%;
-                    padding: 100px 100px 120px;
+                    // padding: 100px 100px 120px;
                     margin-right: 0px;
                     background-repeat: no-repeat;
                     background-position: 100% 100%;
@@ -142,12 +153,17 @@ const CharacterIntroSwiper = () => {
                     top: -530px;
                     left: 200px;
                 }
+                #thumbs{
+                    padding: 0 !important!;
+                }
 
             `}
             </style>
             <React.Fragment>
                 <Swiper
+                    id="main"
                     tag="section"
+                    thumbs={{ swiper: thumbsSwiper }}
                     wrapperTag="ul"
                     navigation
                     pagination
@@ -156,10 +172,20 @@ const CharacterIntroSwiper = () => {
                     slidesPerView="1"
                     // onInit={}
                     onSlideChange={slide => console.log("CHANGED", slide.activeIndex)}
-                // onReachEnd={}
                 >
                     {slides}
                 </Swiper>
+                <div className="thumb-slider">
+                <Swiper
+                    id="thumbs"
+                    tag="section"
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={0}
+                    slidesPerView={12}
+                >
+                    {thumbsSlides}
+                </Swiper>
+                </div>
             </React.Fragment>
         </>
     )
