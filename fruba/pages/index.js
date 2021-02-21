@@ -15,7 +15,7 @@ export default function Home() {
         <img
           alt="main_image"
           className={`${homeStyle.main_img}`}
-          src="/assets/main_page/ph_mainvisual.jpg"
+          src="/assets/main_page/ph_mainvisual_akito.jpg"
         />
       </div>
       <div className={`${homeStyle.main_title_wrapper}`}>

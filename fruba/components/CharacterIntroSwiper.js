@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, Thumbs } from 'swiper'
 import 'swiper/swiper-bundle.css'
@@ -12,6 +12,12 @@ const CharacterIntroSwiper = () => {
 
     const [isSwitchedToAnimal, setIsSwitchedToAnimal] = useState(false)
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const clickedThumbnail = useRef(0) // returns a single object current {current:0}
+    const [slideIndex, setSlideIndex] = useState(null)
+    console.log("slideIndx", slideIndex)
+    useEffect(() => {
+
+    })
 
     const onClickSwitch = () => {
         if (!isSwitchedToAnimal) {
@@ -19,6 +25,15 @@ const CharacterIntroSwiper = () => {
         } else {
             setIsSwitchedToAnimal(false)
         }
+    }
+    
+    const onClickThumbnail = (i) =>  {
+        clickedThumbnail.current = i
+    }
+
+    const onInitSlide = (i) => {
+        console.log("set slide index", i)
+        setSlideIndex(i)
     }
 
     const slides = []
@@ -61,15 +76,15 @@ const CharacterIntroSwiper = () => {
     const thumbsSlides = []
     characters.map((char, idx) => {
         thumbsSlides.push(
-            <SwiperSlide
+            <li
                 key={`thumb-${idx}`}
-                tag="li"
-                className={char}
+                onClick={() => onClickThumbnail(idx)}
+                className={`${char}_${idx}`}
             >
                 <img
-                    style={{ width: "60px", height: "60px" }}
+                    style={{ width: "60px", height: "60px", cursor:"pointer" }}
                     src={`/assets/char_thumbs/${char}_ph_thumb.jpg`}></img>
-            </SwiperSlide>
+            </li>
         )
     })
 
@@ -78,11 +93,15 @@ const CharacterIntroSwiper = () => {
         <>
             <style jsx global>
                 {`
+                .main-contents {
+                    width: 800px !important;
+                    margin-left: 238px;
+                }
                 .swiper-container {
-                    height: 1070px;
+                    height: 870px;
                 }
                 .swiper-slide {
-                    background-color: aliceblue; 
+                    background-color: aqua; 
                     color: #000;
                     text-shadow: none;
                     text-align:center;
@@ -153,8 +172,9 @@ const CharacterIntroSwiper = () => {
                     top: -530px;
                     left: 200px;
                 }
-                #thumbs{
-                    padding: 0 !important!;
+                #thumbs .swiper-wrapper .swiper-slide{
+                    background-color: pink !important;
+
                 }
 
             `}
@@ -163,28 +183,24 @@ const CharacterIntroSwiper = () => {
                 <Swiper
                     id="main"
                     tag="section"
-                    thumbs={{ swiper: thumbsSwiper }}
+                    // thumbs={{ swiper: thumbsSwiper }}
                     wrapperTag="ul"
                     navigation
                     pagination
                     loop
                     // spaceBetween="0"
                     slidesPerView="1"
-                    // onInit={}
-                    onSlideChange={slide => console.log("CHANGED", slide.activeIndex)}
+                    onInit={slide => onInitSlide(slide.activeIndex)}
+                    onSlideChange={slide => onInitSlide(slide.activeIndex)}
                 >
                     {slides}
                 </Swiper>
-                <div className="thumb-slider">
-                <Swiper
-                    id="thumbs"
-                    tag="section"
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={0}
-                    slidesPerView={12}
-                >
-                    {thumbsSlides}
-                </Swiper>
+                <div className="thumb-custon-slider">
+                    <section id="thumbs">
+                        <ul>
+                            {thumbsSlides}
+                        </ul>
+                    </section>
                 </div>
             </React.Fragment>
         </>

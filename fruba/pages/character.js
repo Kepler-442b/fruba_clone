@@ -8,8 +8,8 @@ export default function character() {
             <style jsx global>
                 {`
                 .swiper-section {
-                    width: calc(100% + 66px);
-                    min-height: 700px;
+                    width: 100%;
+                    height: 870px;
                     position: relative;
                     top: 85px;
                     left: -20px;
