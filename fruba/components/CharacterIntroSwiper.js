@@ -107,7 +107,6 @@ const CharacterIntroSwiper = () => {
                     text-align:center;
                     border-radius: 10px 0px 0px 10px;
                     width: 100%;
-                    // padding: 100px 100px 120px;
                     margin-right: 0px;
                     background-repeat: no-repeat;
                     background-position: 100% 100%;
@@ -188,7 +187,6 @@ const CharacterIntroSwiper = () => {
                     navigation
                     pagination
                     loop
-                    // spaceBetween="0"
                     slidesPerView="1"
                     onInit={slide => onInitSlide(slide.activeIndex)}
                     onSlideChange={slide => onInitSlide(slide.activeIndex)}
