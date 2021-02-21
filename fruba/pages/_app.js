@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout className="container">
+    <Layout>
       <Component {...pageProps} />  {/* {the page is passed in as a child } */}
     </Layout>
   )

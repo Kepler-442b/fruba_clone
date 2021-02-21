@@ -78,22 +78,27 @@ const CharacterIntroSwiper = () => {
         <>
             <style jsx global>
                 {`
-                .swiper-container {
-                    height: 1070px;
+                .main-contents {
+                    margin-left: 0 !important;
+                }
+                .swiper-section {
+                    margin-left: 220px;
+                    width:800px;
+                }
+                #main {
+                    border-radius: 10px 0px 0px 10px;
+                    height:1090px;
+                    margin-left:-20px;
                 }
                 .swiper-slide {
                     background-color: aliceblue; 
                     color: #000;
                     text-shadow: none;
                     text-align:center;
-                    border-radius: 10px 0px 0px 10px;
                     width: 100%;
                     margin-right: 0px;
                     background-repeat: no-repeat;
                     background-position: 100% 100%;
-                }
-                .swiper-wrapper {
-                    padding-left: 0px;
                 }
                 .swiper-button-prev {
                     background-image: url(/assets/prev-button.svg);
@@ -173,7 +178,7 @@ const CharacterIntroSwiper = () => {
                     navigation
                     pagination
                     loop
-                    slidesPerView="1"
+                    slidesPerView={1}
                     onSlideChange={slide => console.log(slide.activeIndex)}
                 >
                     {slides}
