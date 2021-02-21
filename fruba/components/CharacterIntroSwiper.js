@@ -88,7 +88,6 @@ const CharacterIntroSwiper = () => {
                     text-align:center;
                     border-radius: 10px 0px 0px 10px;
                     width: 100%;
-                    // padding: 100px 100px 120px;
                     margin-right: 0px;
                     background-repeat: no-repeat;
                     background-position: 100% 100%;
@@ -153,8 +152,14 @@ const CharacterIntroSwiper = () => {
                     top: -530px;
                     left: 200px;
                 }
-                #thumbs{
-                    padding: 0 !important!;
+                .thumb-slider {
+                    width: 460PX;
+                    position: relative;
+                    top: -350px;
+                }
+               .thumb-slider .swiper-container {
+                    width: 100%;
+                    height: auto;
                 }
 
             `}
@@ -168,23 +173,25 @@ const CharacterIntroSwiper = () => {
                     navigation
                     pagination
                     loop
-                    // spaceBetween="0"
                     slidesPerView="1"
-                    // onInit={}
-                    onSlideChange={slide => console.log("CHANGED", slide.activeIndex)}
+                    onSlideChange={slide => console.log(slide.activeIndex)}
                 >
                     {slides}
                 </Swiper>
                 <div className="thumb-slider">
-                <Swiper
-                    id="thumbs"
-                    tag="section"
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={0}
-                    slidesPerView={12}
-                >
-                    {thumbsSlides}
-                </Swiper>
+                    <Swiper
+                        id="thumbs"
+                        tag="section"
+                        wrapperTag="ul"
+                        onSwiper={setThumbsSwiper}
+                        spaceBetween={6} // this sets margin of 6px
+                        slidesPerColumnFill="row" // this is necessary for multi row slider 
+                        slidesPerView={6}
+                        slidesPerGroup={6}
+                        slidesPerColumn={4}
+                    >
+                        {thumbsSlides}
+                    </Swiper>
                 </div>
             </React.Fragment>
         </>
