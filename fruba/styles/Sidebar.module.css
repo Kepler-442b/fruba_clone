@@ -1,66 +1,118 @@
 .side_bar_wrapper {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: auto;
     width: 240px;
-}
-
-.title {
-    background-color: #B082E0;
-    margin: 0;
-    padding: 35px 0 0 40px;
-    cursor: pointer;
+    height: 660px;
+    z-index: 0;
 }
 
 .nav {
     background-color: #B082E0;
 }
 
+.menu {
+    padding: 10px 32px 32px;
+}
+
+.title {
+    padding: 35px 0 0 0;
+    cursor: pointer;
+}
+
+.logo {
+    height: 38px;
+    background-image: url('/assets/char_others/gnav_logo.svg');
+    background-repeat: no-repeat;
+}
+
+.logo:hover {
+    background-image: url('/assets/char_others/gnav_logo_on_hover.svg');
+}
+
 .li {
     border: none !important;
     background-color: #B082E0;
     cursor: pointer;
+    width: max-content;
+    padding: 0;
+    margin-top: 20px;
 }
 
-/* .li :hover {
-    text-decoration: underline;
-} */
+.li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all .3s ease;
+}
+
+.li:nth-last-child(1)::after {
+    height: 0;
+}
+
+.li:nth-last-child(2)::after {
+    height: 0;
+}
+
+.li:hover::after {
+    width: 100%;
+    transition: all .3s ease;
+}
 
 .img {
     height: 16px;
     vertical-align: bottom;
 }
 
-.link ::after {
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    content: '';
-    width: 0;
-    display: block;
-    height: 2px;
-    background-color: #fff
-}
-
-.logo {
-    height: 38px;
-}
-
-.menu {
-    padding: 10px 32px 32px;
-}
-
-.side_info {
+.side_info_wrap {
     width: 240px;
     padding: 20px 20px 0;
 }
 
+.hide_side_info_wrap{
+    display: none;
+}
+
 .movie_thumb {
-    width: 40px;
-    height: 40px;
+    position: relative;
+    margin-bottom: 12px;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movie_thumb::before {
+    transition: all .3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.movie_thumb:hover::before {
+    background: rgba(0, 0, 0, 0);
+}
+
+.movie_thumb::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 45px;
+    height: 45px;
+    background: url('/assets/play-button.svg');
+    background-size: 100%;
 }
 
 .movie_thumb img {
     width: 100%;
-    border-radius: 10px;
 }

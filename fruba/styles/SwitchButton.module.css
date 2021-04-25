@@ -1,0 +1,19 @@
+.switch_button {
+    background-color: transparent;
+    border-color: transparent;
+    position: relative;
+    z-index: 1;
+
+}
+
+.switch_button:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    opacity: 0.7;
+}
+
+.switch_button>img {
+    border-radius: 50%;
+    background-color: #cccccc;
+    height: 80px;
+}

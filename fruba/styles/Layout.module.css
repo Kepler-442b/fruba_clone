@@ -1,3 +1,32 @@
+.main_wrapper {
+  position: relative;
+}
+
+.non_main_wrapper {
+  margin-left: 220px;
+  width: 1220px;
+  height: 100%;
+  padding-top: 100px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .main_contents {
-  margin-left:230px;
+  /* margin-left: 240px; */
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.non_main_contents {
+  height: 1100px;
+  margin-left: 220px;
+  padding-top: 24px;
+  min-height: 700px;
+  border-radius: 10px 0px 0px 10px;
+  width: calc(100% - 220px);
+  position: relative;
+  margin-top: -20px;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.1)
 }

@@ -1,25 +1,37 @@
-.main_img_wrapper {
-    /* display: flex; */
+.image_section {
+    position: relative;
+    margin-left: 320px;
+}
+
+.img_wrapper {
+    width: 100%;
+    padding-top: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img_container {
+    width: calc(100% - 80px);
+    position: relative;
+    background-color: #FFFFFF;
+    display: block;
 }
 
 .main_img {
-    width: calc(100% - 80px);
-    height: auto;
-    padding-top: 85px;
-    margin-left: 80px;
-    max-width: 1076px;
+    width: 100%;
 }
 
 .main_title_wrapper {
-    position: absolute;
+    position: relative;
+    width: calc(100% - 60px);
+    max-width: 1328px;
     top: 0;
-    left: 38px;
+    left: -54px
 }
 
-.title_container {
-    position: relative;
-    margin-bottom: 20px;
-    width: 60vw;
+.main_title_container {
+    width: 1045px;
 }
 
 .sub_title_wrapper {
@@ -29,28 +41,31 @@
 
 .sub_title_1_container {
     position: relative;
-    width: 20vw;
-    height: auto;
-    background-color: white;
-    /* z-index: 1; */
+    width: 31.66667%;
+    max-width: 380px;
+    min-width: 200px;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: -54px
 }
 
 .sub_title_2_container {
     position: relative;
-    width: 15vw;
-    height: auto;
-    background-color: white;
-    /* z-index: 1; */
+    width: 25%;
+    max-width: 300px;
+    min-width: 157px;
+    overflow: hidden;
+    margin: -5px 0 0 -54px
 }
 
-.text_curtain {
+.main_title_curtain {
     position: absolute;
     top: 0;
     left: auto;
     width: 0%;
     height: 100%;
     background-color: #B082E0;
-    animation: grow_curtain ease-in 2s 1 forwards;
+    animation: grow_curtain 5.5s ease-in 1 forwards;
 }
 
 .text_curtain_sub_1 {
@@ -59,7 +74,8 @@
     width: 0%;
     height: 100%;
     background-color: #B082E0;
-    animation: grow_curtain ease-in 1s 0.5s 1 forwards;
+    animation: grow_curtain 1s linear 0.5s 1 forwards; 
+    /* name duration timing-function delay iteration-count direction  */
 }
 
 .text_curtain_sub_2 {
@@ -68,21 +84,21 @@
     width: 0%;
     height: 100%;
     background-color: #B082E0;
-    animation: grow_curtain ease-in 1s 1s 1 forwards;
+    animation: grow_curtain 1s ease-in 1s 1 forwards;
 }
 
 @keyframes grow_curtain {
     0% {
         width: 0%;
-        right: 100%;
+        /* right: 100%; */
     }
     25% {
         width: 50%;
-        right: 50%;
+        /* right: 50%; */
     }
     50% {
         width: 100%;
-        right: 0%;
+        /* right: 0%; */
     }
     75% {
         width: 50%;

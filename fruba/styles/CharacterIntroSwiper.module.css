@@ -1,0 +1,85 @@
+.swiper_background {
+    background-size: contain;
+    background-position: -42px 396px;
+    background-repeat: no-repeat;
+}
+
+.main-contents {
+    margin-left: 0 !important;
+}
+
+.swiper-wrapper {
+    transform: translate3d(-880px, 0px, 0px);
+}
+
+.swiper-section {
+    margin-left: 200px;
+    width: 840px;
+}
+
+#main {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.title_text_img {
+    height: 100px;
+    width: 100%;
+    position: relative;
+    /* left: 40%; */
+}
+
+.swiper-slide {
+    background-color: aliceblue;
+    color: #000;
+    text-shadow: none;
+    text-align: center;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+
+.switch_button_wrapper {
+    position: relative;
+    left: 250px;
+    top: -50px;
+}
+
+.full_body_img {
+    position: relative;
+    top: -150px;
+}
+
+.full_body_img_non_jyuniji {
+    position: relative;
+    top: -100px;
+}
+
+.character_info .introduction {
+    width: 380px;
+    min-height: 140px;
+    text-align: left;
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+}
+
+.character_info .face {
+    position: relative;
+    left: -25px;
+}
+
+.character_info .name {
+    display: block;
+    width: 100%;
+}
+
+.thumb_slider {
+    width: 520px;
+    position: relative;
+    top: -560px;
+}
+
+.thumb_slider .swiper-container {
+    width: 100%;
+    height: auto;
+}

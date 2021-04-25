@@ -1,28 +1,28 @@
 import Sidebar from "./Sidebar"
 import { useRouter } from "next/router"
-import layoutStyle from "../styles/Layout.module.css"
+import styles from "../styles/Layout.module.css"
+import React, { useEffect, useState } from 'react';
 
 const Layout = ({ children }) => {
+
+    const [isMainPage, setIsMainPage] = useState(true)
     const router = useRouter()
-    const isMainPage = router.pathname === "/" ? true : false
+
+    useEffect(() => {
+        if (router.pathname === "/") {
+            setIsMainPage(true)
+        } else {
+            setIsMainPage(false)
+        }
+    }, [isMainPage])
+
     return (
-        <>
-                <style jsx global>
-        {`
-            .main-contents {
-                margin-left: 240px;
-            }
-        `}
-        </style>
-            <div className="container-fluid">
-                <div className="row">
-                    <Sidebar />
-                    <div className="main-contents col-9">
-                        {children}
-                    </div>
-                </div>
+        <div className={isMainPage ? styles.main_wrapper : styles.non_main_wrapper}>
+                <Sidebar isMainPage={isMainPage} />
+            <div className={isMainPage ? styles.main_contents : styles.non_main_contents}>
+                {children}
             </div>
-        </>
+        </div>
     )
 }
 

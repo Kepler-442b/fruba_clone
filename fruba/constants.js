@@ -1,8 +1,25 @@
-export const characters =[
-    'yuki', 'kyo', 'isuzu', 'shigure', 'momiji', 
-    'arisa', 'saki', 'kisa', 'kureno', 'akito', 
-    'ayame', 'hatori', 'hiro', 'ritsu', 'kagura', 
-    'hatsuharu', 'kazuma', 'kyoko', 'kakeru', 'machi', 
+export const characters = [
+    // { name: 'tohru', isJyuniji: false },
+    { name: 'yuki', isJyuniji: true },
+    { name: 'kyo', isJyuniji: true },
+    { name: 'isuzu', isJyuniji: true },
+    { name: 'shigure', isJyuniji: true },
+    { name: 'momiji', isJyuniji: true },
+    { name: 'arisa', isJyuniji: false },
+    { name: 'saki', isJyuniji: false },
+    { name: 'kisa', isJyuniji: true },
+    { name: 'kureno', isJyuniji: true },
+    { name: 'akito', isJyuniji: false },
+    { name: 'ayame', isJyuniji: true },
+    { name: 'hatori', isJyuniji: true },
+    { name: 'hiro', isJyuniji: true },
+    { name: 'ritsu', isJyuniji: true },
+    { name: 'kagura', isJyuniji: true },
+    { name: 'hatsuharu', isJyuniji: true },
+    { name: 'kazuma', isJyuniji: false },
+    { name: 'kyoko', isJyuniji: false },
+    { name: 'kakeru', isJyuniji: false },
+    { name: 'machi', isJyuniji: false },
 ]
 
 // TODO: add tohru

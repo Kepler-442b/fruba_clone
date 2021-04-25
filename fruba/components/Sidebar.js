@@ -1,123 +1,123 @@
 import Link from "next/link"
-import sideBarStyle from "../styles/Sidebar.module.css"
+import styles from "../styles/Sidebar.module.css"
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+const {isMainPage} = props
     return (
-        <section className={`${sideBarStyle.side_bar_wrapper}`}>
-            <h1 className={`${sideBarStyle.title}`}>
-                <Link href="/">
-                    <img
-                        className={`${sideBarStyle.logo}`}
-                        alt="logo"
-                        src="/assets/char_others/gnav_logo.svg"
-                    />
-                </Link>
-            </h1>
-            <nav className={`${sideBarStyle.nav}`}>
-                <div className={`${sideBarStyle.menu}`}>
+        <section className={`${styles.side_bar_wrapper}`}>
+            <nav className={`${styles.nav}`}>
+                <div className={`${styles.menu}`}>
                     <ul className="list-group">
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
-                            <Link href="/test" className={`${sideBarStyle.link}`}>
-                                <img
-                                    className={`${sideBarStyle.img}`}
-                                    alt="news"
-                                    src="/assets/gnav_nav_news.jpg"
+                        <li className={`${styles.title}`}>
+                            <Link href="/">
+                                <svg
+                                    className={`${styles.logo}`}
+                                    alt="logo"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
-                            <Link href="/">
-                                <img
-                                    className={`${sideBarStyle.img}`}
-                                    alt="onair"
-                                    src="/assets/gnav_nav_onair.jpg"
-                                />
-                            </Link>
-                        </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
-                            <Link href="/">
-                                <img
-                                    className={`${sideBarStyle.img}`}
-                                    alt="introduction"
-                                    src="/assets/gnav_nav_introduction.jpg"
-                                />
-                            </Link>
-                        </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
-                            <Link href="/">
-                                <img
-                                    className={`${sideBarStyle.img}`}
-                                    alt="cast_staff"
-                                    src="/assets/gnav_nav_caststaff.jpg"
-                                />
-                            </Link>
-                        </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
-                            <Link href="/">
-                                <img
-                                    className={`${sideBarStyle.img}`}
-                                    alt="story"
-                                    src="/assets/gnav_nav_story.jpg"
-                                /></Link>
-                        </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/character">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="character"
                                     src="/assets/gnav_nav_character.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
+                            <Link href="/test" className={`${styles.link}`}>
+                                <img
+                                    className={`${styles.img}`}
+                                    alt="news"
+                                    src="/assets/gnav_nav_news.jpg"
+                                />
+                            </Link>
+                        </li>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
+                                    alt="onair"
+                                    src="/assets/gnav_nav_onair.jpg"
+                                />
+                            </Link>
+                        </li>
+                        <li className={`list-group-item ${styles.li}`}>
+                            <Link href="/">
+                                <img
+                                    className={`${styles.img}`}
+                                    alt="introduction"
+                                    src="/assets/gnav_nav_introduction.jpg"
+                                />
+                            </Link>
+                        </li>
+                        <li className={`list-group-item ${styles.li}`}>
+                            <Link href="/">
+                                <img
+                                    className={`${styles.img}`}
+                                    alt="cast_staff"
+                                    src="/assets/gnav_nav_caststaff.jpg"
+                                />
+                            </Link>
+                        </li>
+                        <li className={`list-group-item ${styles.li}`}>
+                            <Link href="/">
+                                <img
+                                    className={`${styles.img}`}
+                                    alt="story"
+                                    src="/assets/gnav_nav_story.jpg"
+                                /></Link>
+                        </li>
+                        <li className={`list-group-item ${styles.li}`}>
+                            <Link href="/">
+                                <img
+                                    className={`${styles.img}`}
                                     alt="goods"
                                     src="/assets/gnav_nav_goods.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="event"
                                     src="/assets/gnav_nav_event.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="movie"
                                     src="/assets/gnav_nav_movie.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="special"
                                     src="/assets/gnav_nav_special.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="instagram-logo"
                                     src="/assets/gnav_sns_instagram.jpg"
                                 />
                             </Link>
                         </li>
-                        <li className={`list-group-item ${sideBarStyle.li}`}>
+                        <li className={`list-group-item ${styles.li}`}>
                             <Link href="/">
                                 <img
-                                    className={`${sideBarStyle.img}`}
+                                    className={`${styles.img}`}
                                     alt="twitter-logo"
                                     src="/assets/gnav_sns_twitter.jpg"
                                 /></Link>
@@ -125,12 +125,11 @@ const Sidebar = () => {
                     </ul>
                 </div>
             </nav>
-            <div className={`${sideBarStyle.side_info}`}>
+            <div className={isMainPage ? `${styles.side_info_wrap}` : `${styles.hide_side_info_wrap}`}>
                 <a
-                    className={`${sideBarStyle.movie_thumb}`}
+                    className={styles.movie_thumb}
                     href="https://www.youtube.com/embed/MFmwHt4edSU?rel=0&autoplay=1&showinfo=0">
                     <img
-                        // className={`${}`}
                         alt="thumbnail"
                         src="/assets/movie_thumbnail.jpg"
                     />
