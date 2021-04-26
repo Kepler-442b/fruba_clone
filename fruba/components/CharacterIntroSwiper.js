@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, Thumbs } from 'swiper'
 import { characters } from "../constants"
-// import { Button } from "react-bootstrap"
 import styles from "../styles/CharacterIntroSwiper.module.css"
-import SwitchButton from './SwitchButton';
+import SwitchButton from './SwitchButton'
 
 const CharacterIntroSwiper = () => {
 
@@ -157,6 +156,7 @@ const CharacterIntroSwiper = () => {
         </>
     )
 }
+
 
 export default CharacterIntroSwiper
 

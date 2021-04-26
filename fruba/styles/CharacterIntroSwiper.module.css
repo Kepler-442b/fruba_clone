@@ -38,16 +38,19 @@
     background-position: 100% 100%;
 }
 
-
 .switch_button_wrapper {
     position: relative;
-    left: 250px;
+    left: 370px;
     top: -50px;
 }
 
 .full_body_img {
     position: relative;
     top: -150px;
+}
+
+.full_body_img:active {
+    animation: fade_away 2s ease-out 1;
 }
 
 .full_body_img_non_jyuniji {
@@ -82,4 +85,19 @@
 .thumb_slider .swiper-container {
     width: 100%;
     height: auto;
+}
+
+@keyframes fade_away {
+    0% {
+        opacity: 1;
+        margin-left: 0;
+    }
+    50% {
+        opacity: 0.5;
+        margin-left: -10px;
+    }
+    100% {
+        opacity: 0;
+        margin-left: -20px;
+    }
 }

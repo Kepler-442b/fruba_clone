@@ -17,3 +17,14 @@
     background-color: #cccccc;
     height: 80px;
 }
+
+.switch_button::before {
+    position: absolute;
+    top: -15px;
+    left: 22%;
+    height: 11px;
+    width: 60px;
+    background:url('/assets/change_txt.svg');
+    content: "";
+    background-size: 100%;
+}

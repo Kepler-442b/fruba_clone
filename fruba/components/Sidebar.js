@@ -1,5 +1,6 @@
 import Link from "next/link"
 import styles from "../styles/Sidebar.module.css"
+import PropTypes from "prop-types"
 
 const Sidebar = (props) => {
 const {isMainPage} = props
@@ -137,6 +138,14 @@ const {isMainPage} = props
             </div>
         </section>
     )
+}
+
+Sidebar.PropTypes = {
+isMainPage: PropTypes.bool
+}
+
+Sidebar.defaultProps = {
+   isMainPage: true 
 }
 
 export default Sidebar
