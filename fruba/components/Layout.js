@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         } else {
             setIsMainPage(false)
         }
-    }, [isMainPage])
+    }, [isMainPage, router.pathname])
 
     return (
         <div className={isMainPage ? styles.main_wrapper : styles.non_main_wrapper}>

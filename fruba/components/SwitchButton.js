@@ -8,12 +8,12 @@ const SwitchButton = (props) => {
         onClickHandler,
         isJyuniji,
         isSwitchedToAnimal,
-        char
+        char,
     } = props
 
     return (
         isJyuniji ?
-            <Button
+            <div
                 className={styles.switch_button}
                 onClick={onClickHandler}
             >
@@ -24,7 +24,7 @@ const SwitchButton = (props) => {
                         : `/assets/char_switch/${char}_ph_switch.jpg`
                     }
                 />
-            </Button>
+            </div>
             : <></>
     )
 }

@@ -10,19 +10,32 @@ const CharacterIntroSwiper = () => {
     // initialize swiper
     SwiperCore.use([Navigation, Pagination, Thumbs])
 
+    const [fadeOut, setFadeOut] = useState(0)
+    const [fadeIn, setFadeIn] = useState(0)
+    const [animalFadeOut, setAnimalFadeOut] = useState(0)
+    const [animalFadeIn, setAnimalFadeIn] = useState(0)
     const [isSwitchedToAnimal, setIsSwitchedToAnimal] = useState(false)
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState(null)
 
-    const onClickSwitch = () => {
+    const toggleFadeAnimation = () => {
         if (!isSwitchedToAnimal) {
             setIsSwitchedToAnimal(true)
+            setFadeOut(1)
+            setAnimalFadeIn(1)
+            setFadeIn(0)
+            setAnimalFadeOut(0)
         } else {
             setIsSwitchedToAnimal(false)
+            setFadeIn(1)
+            setAnimalFadeOut(1)
+            setFadeOut(0)
+            setAnimalFadeIn(0)
         }
     }
 
     const slides = []
     characters.map((char) => {
+        console.log("NAME", char.name)
         slides.push(
             <SwiperSlide
                 key={`slide_for_${char.name}`}
@@ -45,20 +58,34 @@ const CharacterIntroSwiper = () => {
                     <div>
                         <div className={styles.switch_button_wrapper}>
                             <SwitchButton
-                                onClickHandler={onClickSwitch}
+                                onClickHandler={toggleFadeAnimation}
                                 isSwitchedToAnimal={isSwitchedToAnimal}
                                 isJyuniji={char.isJyuniji}
                                 char={char.name}
                             />
                         </div>
-                        <div style={{height:"990px"}}>
-                        <img
-                            className={char.isJyuniji ? `${styles.full_body_img}` : `${styles.full_body_img_non_jyuniji}`}
-                            src={isSwitchedToAnimal
-                                ? `/assets/char_animals/${char.name}_ph_animal.jpg`
-                                : `/assets/char_full_body/${char.name}_ph_chara.jpg`
-                            }
-                        />
+                        <div style={{ height: "990px" }}>
+                            <div
+                                className={styles.animal_body}
+                                animalFadeIn={animalFadeIn}
+                                animalFadeOut={animalFadeOut}
+                            >
+                                <img
+                                    src={`/assets/char_animals/${char.name}_ph_animal.jpg`}
+
+                                />
+                            </div>
+                            <div
+                                className={char.isJyuniji ? `${styles.full_body}` : `${styles.full_body_img_non_jyuniji}`}
+                                style={char?.name === "ritsu" ? { left: "-70px" } : {}}
+                                fadeIn={fadeIn}
+                                fadeOut={fadeOut}
+                            >
+                                <img
+                                    src={`/assets/char_full_body/${char.name}_ph_chara.jpg`}
+                                />
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -124,35 +151,35 @@ const CharacterIntroSwiper = () => {
                 
             `}
             </style>
-                <div className={styles.sliders}>
-                    <Swiper
-                        thumbs={{ swiper: thumbsSwiper }}
-                        wrapperTag="ul"
-                        navigation
-                        pagination
-                        loop
-                        centeredSlides={true}
-                        slidesPerView={1}
-                    >
-                        {slides}
-                    </Swiper>
-                </div>
-                <div className={styles.thumb_slider} id="thumb_slider">
-                    <Swiper
-                        id="thumbs"
-                        tag="section"
-                        wrapperTag="ul"
-                        onSwiper={setThumbsSwiper}
-                        spaceBetween={6} // this sets margin of 6px
-                        slidesPerColumnFill="row" // this is necessary for multi row slider 
-                        slidesPerView={6}
-                        slidesPerGroup={6}
-                        slidesPerColumn={4}
-                        style={{padding:"20px;"}}
-                    >
-                        {thumbsSlides}
-                    </Swiper>
-                </div>
+            <div className={styles.sliders}>
+                <Swiper
+                    thumbs={{ swiper: thumbsSwiper }}
+                    wrapperTag="ul"
+                    navigation
+                    pagination
+                    loop
+                    centeredSlides={true}
+                    slidesPerView={1}
+                >
+                    {slides}
+                </Swiper>
+            </div>
+            <div className={styles.thumb_slider} id="thumb_slider">
+                <Swiper
+                    id="thumbs"
+                    tag="section"
+                    wrapperTag="ul"
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={6} // this sets margin of 6px
+                    slidesPerColumnFill="row" // this is necessary for multi row slider 
+                    slidesPerView={6}
+                    slidesPerGroup={6}
+                    slidesPerColumn={4}
+                    style={{ padding: "20px;" }}
+                >
+                    {thumbsSlides}
+                </Swiper>
+            </div>
         </>
     )
 }
